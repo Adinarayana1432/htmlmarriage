@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <link rel="stylesheet" href="marriage.css">
+</head>
+<body>
+    <div class="bg">
+    
+    <div class="navbar">
+        <div class="logo">Logo</div>
+        <div class="hamburger" onclick="toggleSidebar()">
+            &#9776; <!-- Hamburger icon -->
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="close" onclick="toggleSidebar()">
+                &times; <!-- Close icon -->
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/second">About</a></li>
+                <li><a href="/third">Contact</a></li>
+                <li><a href="/fourth">Services</a></li>
+            </ul>
+        </div>
+        <ul class="desktop-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/second">About</a></li>
+            <li><a href="/third">Contact</a></li>
+            <li><a href="/fourth">Services</a></li>
+        </ul>
+    </div>
+
+    <!-----------------carousel------------>
+    <div class="slideshow-container">
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <div class="image-div1">
+            <img src="https://th.bing.com/th/id/R.c1357742c493bb72966cf8b40360a9f9?rik=7WiCyQYuEAZekg&riu=http%3a%2f%2fwebneel.com%2fdaily%2fsites%2fdefault%2ffiles%2fimages%2fdaily%2f07-2018%2f4-kerala-wedding-photographer-weddingnovels.jpg&ehk=7d0l88s3EfCaP8WS7PHTJdZ9rpkX8rTfMt%2fItF8f4r8%3d&risl=&pid=ImgRaw&r=0" class="image-1">
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <div class="image-div2">
+            <img src="https://i.pinimg.com/originals/85/dc/8b/85dc8b051344c9e21bdff3763283a007.jpg" class="image-1">
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <div class="image-div3">
+            <img src="https://moviegalleri.net/wp-content/uploads/2021/06/Vini-Shamu-Karthik-Yogi-Marriage-Images-HD-1536x1024.jpg" class="image-1">
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <div class="image-div3">
+            <img src="https://wevaphotography.com/wp-content/uploads/2021/08/Kerala-Wedding-Photography-38.jpg" class="image-1">
+        </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+    </div>
+</div>
+<br>
+
+
+
+    <!------------------------video---------------->
+    <div class="video-div">
+        <div class="video">
+    <video width="320" height="300" controls>
+        <source src="video.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-para">
+        <p>It makes me so happy to see you this happy. I’m sending you so much love on your special day.There are many moments in your life that you will never forget, one of which includes your best friend's wedding. Congratulations, I am so happy for you today on your wedding day. Love you loads. Life will bring all sorts of things your way, but it’s all the better with someone beside you to share it with. Congratulations on finding the perfect partner in crime.All love stories are special, but yours is particularly beautiful. I am so honored to have witnessed it. I wish you love, laughter, and happiness for all your years of love ahead of you.
+            Congratulations on becoming a family! I’m sure that you’ll have a lot of fun together. You are a perfect couple, and everyone knows that.</p>
+    </div>
+    </div>
+
+    <!------------------------images---------------->
+    <div class="images-div">
+        <img src="images/image1.jpeg" alt="img" class="img-1"/>
+        <img src="images/image2.jpg" alt="img" class="img-2"/>
+        <img src="images/image3.jpg" alt="img" class="img-3"/>
+        <img src="images/image4.jpeg" alt="img" class="img-4"/>
+
+
+    </div>
+    
+    
+
+</div>
+
+
+<!------------------------script-->
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+
+    <!---------carouesl sript------->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) { slideIndex = 1; }    
+          if (n < 1) { slideIndex = slides.length; }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        
+        // Set up automatic slide transition every 2 minutes (120,000 milliseconds)
+        let slideInterval = setInterval(() => {
+          plusSlides(1); // Move to the next slide
+        }, 10000); // 2 minutes
+        </script>
+        
+</body>
+</html>
